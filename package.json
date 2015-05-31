@@ -1,0 +1,20 @@
+{
+  "name": "doc-term",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:yaronn01/doc-term.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "blessed": "^0.1.60",
+    "blessed-contrib": "^2.0.5",
+    "xml2js": "^0.4.9"
+  }
+}
