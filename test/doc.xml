@@ -16,7 +16,7 @@
 
       <item col="1" row="1" colSpan="3" rowSpan="3">
 
-         <box style-fg="blue" content="789" />
+         <map  />
 
       </item>
 
