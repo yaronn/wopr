@@ -1,20 +1,28 @@
 {
-  "name": "doc-term",
+  "name": "server",
   "version": "0.0.1",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:yaronn01/doc-term.git"
+    "url": "git+ssh://git@bitbucket.org/yaronn01/doc-term.git"
   },
-  "author": "",
+  "author": "Yaron Naveh (yaronn01@gmail.com)",
+  "bin": {
+    "doc-term": "./bin/presenter-cli.js"
+  },
   "license": "ISC",
   "dependencies": {
     "blessed": "^0.1.60",
-    "blessed-contrib": "https://github.com/yaronn/blessed-contrib.git",
+    "blessed-contrib": "git+https://github.com/yaronn/blessed-contrib.git",
     "xml2js": "^0.4.9"
-  }
+  },
+  "homepage": "https://bitbucket.org/yaronn01/doc-term#readme",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "description": ""
 }
