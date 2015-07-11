@@ -1,6 +1,6 @@
 {
   "name": "doc-term",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "blessed": "^0.1.60",
-    "blessed-contrib": "^2.0.5",
+    "blessed-contrib": "https://github.com/yaronn/blessed-contrib.git",
     "xml2js": "^0.4.9"
   }
 }

@@ -1,0 +1,25 @@
+<document>
+
+   <page>
+
+      
+      <item col="0" row="0" colSpan="3" rowSpan="3">
+
+         <!--<bar barWidth="4" barSpacing="2" xOffset="0" maxHeight="5" height="80%" data-titles="bar1,bar2,bar3" data-data="2,4,2" />-->
+         
+         <table fg="white" width="30%" height="30%" columnSpacing="10" columnWidth="5,10" data-headers="col1,col2" interactive="false">
+          <data-data>
+            1,2
+            3,4
+            5,6
+          </data-data>
+         </table>
+
+      </item>
+
+   </page>
+
+
+   
+</document>
+
