@@ -5,6 +5,7 @@ var fs = require('fs')
   , Viewer = require('../lib/document-viewer.js')
 
 parse(xml, function (err, doc) {
+  console.log(err)
   var viewer = new Viewer(doc.document)
   viewer.renderPage(0)
 
