@@ -27,14 +27,24 @@
          </sparkline>
         -->
         
-        
+        <!--
         <map label="map">
             <markers>
                 <m lat="37.5000" lon="-79.0000" color="red" type="X" />
                 <m lat="79.0000" lon="37.5000" color="blue" type="O" />
             </markers>
         </map>
+        -->
         
+       
+        <line width="50" height="30" xPadding="5" showLegend="true" legend-width="12">
+          <data>
+            <m title="us-east" style-line="red" x="t1,t2,t3" y="10,20,30" />
+            <m title="us-west" style-line="blue" x="t1,t2,t3" y="20,40,10" />
+            <m title="us-west" style-line="yellow" x="t1,t2,t3" y="50,10,10" />
+          </data>
+        </line>
+      
 
       </item>
 
