@@ -7,7 +7,7 @@ var parse = require('xml2js').parseString
   , contrib = require('blessed-contrib')
 
 
-function present(req, res, body) {
+function present(req, res, body, cba) {
   
   blessed.Screen.global = null
   blessed.Program.global = null
@@ -17,82 +17,51 @@ function present(req, res, body) {
   
   
   if (!body | body=="") {
-       return contrib.serverError("You must upload the document to present as the POST body")
+       return cba("You must upload the document to present as the POST body")
   }
   
     
   parse(body, function (err, doc) {
-
-    //console.log(doc)
+    try {
+      
+      if (err) {
+         return cba("Document xml is not valid: " + err)
+      }
     
-    if (err) {
-       console.log(err)
-       return contrib.serverError(req, res, err)
+      if (!doc || !doc.document) return cba("document not valid or has no pages")
+      if (!doc.document.page || doc.document.page.length==0) return cba("document must have at least one page")
+      
+      if (page>=doc.document.page.length) {
+         return cba('\r\n\r\nPresentation has ended ('+doc.document.page.length+' pages). Press CTRL+C to exit.\r\n\r\n')
+      }
+      
+      req.connection.on('close',function(){
+        screen = null
+      });
+      
+      var screen = contrib.createScreen(req, res)
+      if (screen==null) return
+      
+      viewer = new Viewer(doc.document, screen)
+      var err = viewer.renderPage(page)
+      if (err!==null) return cba(err)
+        
+      setTimeout(function() {
+        res.write('\r\n\r\n\r\n\r\nPress Return to continue\r\n\r\n')
+        //restore cursor
+        res.end('\033[?25h')
+        return cba()
+      }, 0)
+      
     }
     
-    if (page>=doc.document.page.length) {
-       return contrib.serverError(req, res, '\r\n\r\nPresentation has ended ('+doc.document.page.length+' pages). Press CTRL+C to exit.\r\n\r\n')
+    catch (e) {
+      return cba(e)
     }
     
-    req.connection.on('close',function(){
-      console.log("cleanup")
-      screen = null
-    });
-    
-  
-    var screen = contrib.createScreen(req, res)
-    if (screen==null) return
-    
-    viewer = new Viewer(doc.document, screen)
-    viewer.renderPage(page)
-    
-    setTimeout(function() {
-      res.write('\r\n\r\n')
-      //restore cursor
-      res.end('\033[?25h')
-    }, 0)
     
   })
 }
 
 module.exports = present
 
-
-
-/*
-
-var blessed = require('blessed')
-  , contrib = require('blessed-contrib')
-
-function present(req, res, body) {
-
-  blessed.Screen.global = null
-  blessed.Program.global = null
-
-
-    //require('./bar').handle(req, res)
-    //return
-    
-    var screen = contrib.createScreen(req, res)
-    
-    
-    var gauge = contrib.gauge({label: 'Progress', stroke: 'green', fill: 'white', percent: 50})
-    
-   
-    screen.append(gauge)
-  
-    gauge.setPercent(25)
-    
-    screen.render()
-
-setTimeout(function() {
-      res.write('\r\n\r\n')
-      //restore cursor
-      res.end('\033[?25h')
-    }, 0)
-
-}
-
-*/
-
-module.exports = present

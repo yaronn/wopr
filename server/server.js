@@ -2,6 +2,7 @@ var http = require('http')
   , url = require('url')
   , fs = require('fs')
   , present = require('./presenter')
+  , contrib = require('blessed-contrib')
 
 var port = process.env.PORT || 1337
 
@@ -27,7 +28,9 @@ http.createServer(function (req, res) {
               req.connection.destroy();
       });
       req.on('end', function () {
-          present(req, res, body)
+          present(req, res, body, function(err) {
+            if (err) return contrib.serverError(req, res, err)
+          })
       });
   }
   else {
