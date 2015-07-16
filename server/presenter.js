@@ -32,7 +32,7 @@ function present(req, res, body, cba) {
       if (!doc.document.page || doc.document.page.length==0) return cba("document must have at least one page")
       
       if (page>=doc.document.page.length) {
-         return cba('\r\n\r\nPresentation has ended ('+doc.document.page.length+' pages). Press CTRL+C to exit.\r\n\r\n')
+         return cba('\r\n\r\nPresentation has ended (total '+doc.document.page.length+' pages). Press CTRL+C to exit.\r\n\r\n')
       }
       
       req.connection.on('close',function(){

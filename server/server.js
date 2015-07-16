@@ -34,7 +34,14 @@ http.createServer(function (req, res) {
       });
   }
   else {
-      return contrib.serverError(req, res, "this url only supports POST")
+      if (req.headers["user-agent"].indexOf('curl')!=-1) {
+        return contrib.serverError(req, res, "this url only supports POST")
+      }
+      else {
+        res.writeHead(301, {'Location': 'https://github.com/yaronn/blessed-contrib'});
+        res.end()
+        return
+      }
   }
     
     
