@@ -1,18 +1,9 @@
 
-
 <document>
+
 
    <page>
 
-      <!--
-      <item col="0" row="0" colSpan="3" rowSpan="3">
-  
-        <bigtext content="Hello!" fch=" " style-fg="green" style-bold="false" />
-        
-      </item>
-      -->
-      
-      
       <item col="0" row="0" colSpan="5" rowSpan="2">
   
         <markdown style-paragraph="chalk.white" style-strong="chalk.cyan.underline" style-em="chalk.green" border-type="line" border-fg="gray">
@@ -77,10 +68,83 @@
         
       </item>
       
-
-       
-         
     </page>
+
+
+ <page>
       
+      <item col="0" row="0" colSpan="5" rowSpan="2">
+  
+        <markdown style-paragraph="chalk.white" style-strong="chalk.cyan.underline" style-em="chalk.green" border-type="line" border-fg="gray">
+          <markdown>
+              *doc-term* is a markup format for rich terminal `reports`, `presentations` and `inforgraphics`. &#10;Build the report from any language and view it locally or remotely via curl. &#10;More information: [http://www.w.com](http://www.w.com) or [http://www.w.com](http://www.w.com) &#10;&#10;Press **Return** for the next slide
+          </markdown>
+        </markdown>
+          
+      </item>
+      
+      <item col="8" row="0" colSpan="4" rowSpan="4" >
+  
+        <map style-shapeColor="yellow">
+          <markers>
+                <m lat="37.5000" lon="-79.0000" color="magenta" />
+                <m lat="18.0000" lon="80.5000" color="magenta" />
+          </markers>
+        </map>
+          
+      </item>
+      
+      
+       <item col="0" row="3" colSpan="12" rowSpan="9" >
+  
+        <map startLon="50" endLon="110" startLat="115" endLat="140"  region="us">
+          <markers>
+             <m lat="47.61" lon="-122.33" char="61" color="white" />
+             <m lat="36.75" lon="-119.77" char="78" color="white" />
+             <m lat="36.17" lon="-115.14" char="71" color="white" />
+             <m lat="43.61" lon="-116.2" char="61" color="white" />
+             <m lat="40.76" lon="-111.89" char="55" color="white" />
+             <m lat="33.45" lon="-112.07" char="81" color="white" />
+             <m lat="45.78" lon="-108.5" char="61" color="white" />
+             <m lat="41.14" lon="-104.82" char="50" color="white" />
+             <m lat="39.74" lon="-104.98" char="48" color="white" />
+             <m lat="35.08" lon="-106.65" char="52" color="white" />
+             <m lat="46.81" lon="-100.78" char="56" color="white" />
+             <m lat="44.08" lon="-103.23" char="59" color="white" />
+             <m lat="41.26" lon="-95.94" char="67" color="white" />
+             <m lat="39.1" lon="-94.58" char="69" color="white" />
+             <m lat="35.47" lon="-97.52" char="64" color="white" />
+             <m lat="32.78" lon="-96.81" char="60" color="white" />
+             <m lat="29.76" lon="-95.36" char="67" color="white" />
+             <m lat="44.98" lon="-93.26" char="55" color="white" />
+             <m lat="41.6" lon="-93.61" char="66" color="white" />
+             <m lat="34.75" lon="-92.29" char="63" color="white" />
+             <m lat="39.73" lon="-90.23" char="57" color="white" />
+             <m lat="29.95" lon="-90.08" char="64" color="white" />
+             <m lat="43.04" lon="-87.91" char="43" color="white" />
+             <m lat="41.51" lon="-87.64" char="52" color="white" />
+             <m lat="42.33" lon="-83.05" char="40" color="white" />
+             <m lat="39.77" lon="-86.16" char="54" color="white" />
+             <m lat="38.25" lon="-85.76" char="56" color="white" />
+             <m lat="36.17" lon="-86.78" char="57" color="white" />
+             <m lat="35.15" lon="-90.05" char="64" color="white" />
+             <m lat="33.75" lon="-84.39" char="52" color="white" />
+             <m lat="28.54" lon="-81.38" char="78" color="white" />
+             <m lat="25.77" lon="-80.19" char="75" color="white" />
+             <m lat="37.41" lon="-94.7" char="57" color="white" />
+             <m lat="37.75" lon="-84.29" char="54" color="white" />
+             <m lat="38.9" lon="-77.04" char="50" color="white" />
+             <m lat="43" lon="-75.5" char="38" color="white" />
+             <m lat="42.36" lon="-71.06" char="32" color="white" />
+          </markers>
+        </map>
+          
+      </item>
+      
+      
+    </page>
+
+
+    
 </document>
 
