@@ -1,0 +1,86 @@
+
+
+<document>
+
+   <page>
+
+      <!--
+      <item col="0" row="0" colSpan="3" rowSpan="3">
+  
+        <bigtext content="Hello!" fch=" " style-fg="green" style-bold="false" />
+        
+      </item>
+      -->
+      
+      
+      <item col="0" row="0" colSpan="5" rowSpan="2">
+  
+        <markdown style-paragraph="chalk.white" style-strong="chalk.cyan.underline" style-em="chalk.green" border-type="line" border-fg="gray">
+          <markdown>
+              *doc-term* is a markup format for rich terminal `reports`, `presentations` and `inforgraphics`. &#10;Build the report from any language and view it locally or remotely via curl. &#10;More information: [http://www.w.com](http://www.w.com) or [http://www.w.com](http://www.w.com) &#10;&#10;Press **Return** for the next slide
+          </markdown>
+        </markdown>
+          
+      </item>
+      
+      <item col="0" row="2" colSpan="6" rowSpan="9">
+  
+        <line xPadding="5" showLegend="true" legend-width="12">
+          <data>
+            <m title="us-east" style-line="red" x="09:00,09:05,09:10,09:15,09:20,09:25,09:30" y="30,50,40,40,30,40,50" />
+            <m title="us-west" style-line="blue" x="09:00,09:05,09:10,09:15,09:20,09:25,09:30" y="10,30,20,30,25, 10" />
+            <m title="eu-west" style-line="yellow" x="09:00,09:05,09:10,09:15,09:20,09:25,09:30" y="20,40,50,10,50,50,60" />
+          </data>
+        </line>
+        
+      </item>
+      
+      
+      <item col="7" row="4" colSpan="5" rowSpan="4">
+  
+        <bar barWidth="5" barSpacing="4" xOffset="0" maxHeight="5" height="100%" data-titles="OP1,OP2,AG-US,AG-EU,BCKP1,BCKP2" data-data="2,4,2,5,3,2" />
+        
+      </item>
+      
+      
+      <item col="6" row="8" colSpan="5" rowSpan="4">
+  
+        <donut>
+          <data>
+            <m color="red" percent="60" label="retention" />
+            <m color="green" percent="80" label="live" />
+            <m color="blue" percent="35" label="offline" />
+          </data>
+        </donut>
+        
+      </item>
+      
+
+      <item col="7" row="0" colSpan="5" rowSpan="4">
+  
+         <table fg="white" width="30%" height="30%" columnSpacing="10" columnWidth="8,8,10,7,25" data-headers="# build,duration,passed,failed,status" interactive="false">
+          <data-data>
+            1,02:17,21,13,{red-fg}fail{/red-fg}
+            2,02:15,33,11,{blue-fg}pass{/blue-fg}
+            3,03:22,15,12,{red-fg}fail{/red-fg}
+            4,05:00,11,18,{red-fg}fail{/red-fg}
+            5,02:17,17,12,{blue-fg}pass{/blue-fg}
+            6,01:01,23,29,{red-fg}fail{/red-fg}
+            7,00:24,27,37,{blue-fg}pass{/blue-fg}
+            8,02:36,19,12,{blue-fg}pass{/blue-fg}
+            9,03:12,7,12,{blue-fg}pass{/blue-fg}
+            10,01:15,21,23,{red-fg}fail{/red-fg}
+          </data-data>
+         </table>
+         
+         
+        
+      </item>
+      
+
+       
+         
+    </page>
+      
+</document>
+

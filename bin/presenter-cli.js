@@ -17,10 +17,13 @@ var xml = fs.readFileSync(file)
 parse(xml, function (err, doc) {
   if (err) throw err
   
+  if (!doc || !doc.document) throw "invalid document was provided"
+    
+  
   viewer = new Viewer(doc.document, screen)
   next()
   
-  screen.key(['space', 'return'], function(ch, key) {
+  screen.key(['space', 'return', 'q'], function(ch, key) {
       next()
   });
 
@@ -30,5 +33,7 @@ parse(xml, function (err, doc) {
 function next() {
   page++
   if (page>=viewer.document.page.length) process.exit()
-  viewer.renderPage(page)
+  viewer.renderPage(page, function(err) {
+    if (err) throw err
+  })
 }

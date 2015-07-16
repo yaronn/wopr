@@ -15,7 +15,7 @@
   },
   "license": "ISC",
   "dependencies": {
-    "blessed": "^0.1.60",
+    "blessed": "git+https://github.com/chjj/blessed.git",
     "blessed-contrib": "git+https://github.com/yaronn/blessed-contrib.git",
     "xml2js": "^0.4.9"
   },
