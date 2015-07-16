@@ -8,16 +8,6 @@ var port = process.env.PORT || 1337
 
 http.createServer(function (req, res) {
   
-  /*
-  //log
-  var ip = req.headers['x-forwarded-for'] ||
-     req.connection.remoteAddress ||
-     req.socket.remoteAddress ||
-     req.connection.socket.remoteAddress;
-  
-  fs.appendFileSync("./log.txt", new Date() + " - " + req.url + + " - " + ip + "\r\n")
-  */
-  
   if (req.method == 'POST') {
       var body = '';
       req.on('data', function (data) {
@@ -35,7 +25,13 @@ http.createServer(function (req, res) {
   }
   else {
       if (req.headers["user-agent"].indexOf('curl')!=-1) {
-        return contrib.serverError(req, res, "this url only supports POST")
+        
+        var content = fs.readFileSync(__dirname+'/../test/sample.xml')
+        present(req, res, content, function(err) {
+          if (err) return contrib.serverError(req, res, err)
+        })
+        
+        //else return contrib.serverError(req, res, "this url only supports POST")
       }
       else {
         res.writeHead(301, {'Location': 'https://github.com/yaronn/blessed-contrib'});

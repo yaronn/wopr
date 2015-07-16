@@ -12,9 +12,9 @@ function present(req, res, body, cba) {
   blessed.Screen.global = null
   blessed.Program.global = null
 
-  var query = url.parse(req.url, true).query
-  var page = query.p || 0
-  
+  var u = url.parse(req.url, true)
+  var page = 0
+  if (u.pathname && u.pathname.length>1) page=parseInt(u.pathname.substr(1))
   
   if (!body | body=="") {
        return cba("You must upload the document to present as the POST body")
