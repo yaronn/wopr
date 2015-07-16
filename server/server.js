@@ -17,9 +17,6 @@ http.createServer(function (req, res) {
   fs.appendFileSync("./log.txt", new Date() + " - " + req.url + + " - " + ip + "\r\n")
   */
   
-  present(req, res)
-  return
-  
   if (req.method == 'POST') {
       var body = '';
       req.on('data', function (data) {
@@ -34,9 +31,7 @@ http.createServer(function (req, res) {
       });
   }
   else {
-      res.writeHead(500, {'Content-Type': 'text/plain'});
-      res.end("this url only supports POST")
-      return
+      return contrib.serverError(req, res, "this url only supports POST")
   }
     
     

@@ -1,0 +1,12 @@
+p=0; while true; do curl -NL --data '<document><page><item col="0" row="0" colSpan="5" rowSpan="5"><line width="50" height="30" xPadding="5" showLegend="true" legend-width="12"><data><m title="us-east" style-line="red" x="t1,t2,t3" y="10,20,30" /><m title="us-west" style-line="blue" x="t1,t2,t3" y="20,40,10" /><m title="us-west" style-line="yellow" x="t1,t2,t3" y="50,10,10" /></data></line></item></page><page><item col="0" row="0" rowSpan="2" colSpan="2"><box content="123"></box></item></page></document>' http://localhost:1337/?p=$((p++)); read; done
+
+
+
+
+a=$(curl -s http:// www.netscape.com/); echo "$a"
+
+
+
+a=$(curl -s https://gist.githubusercontent.com/yaronn/6a8f6947fedd88f783d3/raw/12a9f3216769834f356a458f0b8ee6049e59206d/gistfile1.txt); p=0; while true; do curl -NL --data "$a" http://localhost:1337/?p=$((p++)); read; done
+
+
