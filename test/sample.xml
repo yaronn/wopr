@@ -144,7 +144,18 @@
       
     </page>
 
-
+    
+    <page>
+        <item col="4" row="5" colSpan="5" rowSpan="2">
+  
+            <markdown style-paragraph="chalk.white" style-strong="chalk.cyan.underline" style-em="chalk.green">
+              <markdown>
+                  *Thank you!*&#10;&#10;&#10;&#10;More information: &#10;&#10;[http://www.w.com](http://www.w.com)&#10;&#10;[http://www.w.com](http://www.w.com)&#10;&#10;&#10;&#10;created by @YaronNaveh
+              </markdown>
+            </markdown>
+          
+      </item>
+    </page>
     
 </document>
 
