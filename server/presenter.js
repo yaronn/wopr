@@ -47,7 +47,7 @@ function present(req, res, body, cba) {
       if (err!==null) return cba(err)
         
       setTimeout(function() {
-        res.write('\r\n\r\n\r\n\r\nPress Return to continue\r\n\r\n')
+        //res.write('\r\n\r\n\r\n\r\nPress Return to continue\r\n\r\n')
         //restore cursor
         res.end('\033[?25h')
         return cba()
