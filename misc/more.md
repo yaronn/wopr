@@ -8,7 +8,7 @@
 
 A markup language for building rich terminal reports, presentations and infographics.
 
-Generate reports using any language. View reports locally or remotely via curl.
+Generate reports using any language. View reports locally or remotely via curl. Use [blessed](https://github.com/chjj/blessed) and [blessed-contrib](https://github.com/yaronn/blessed-contrib) widgets.
 
 **Contributors:**
 
@@ -18,6 +18,7 @@ Yaron Naveh ([@YaronNaveh](http://twitter.com/YaronNaveh))
 
 [pics]
 
+[source](https://raw.githubusercontent.com/yaronn/wopr/master/test/sample.xml)
 
 You can view this presentation in your terminal with no installation:
 
@@ -225,20 +226,25 @@ When using the online reports, you might need to adjust the slides size based on
 When viewing a report with the local viewer you can advance slides with the Return or Space keys.
 When using the online viewer you have 2 options:
 
-Option 1 - manually advance slides:
+Option 1 - manually advance slides with Return or Space:
 
 `````bash
     p=0; while true; do curl --data '<document>...</document>' tty.zone/$((p++)); read; done
 `````
 
-Option 2 - auto advance slides:
+Option 2 - auto advance slides after 5 seconds:
 
 `````bash
     curl --data '<document>...</document>' tty.zone/[0-3]?auto
 `````
 
-(where 0 is the index of the first slide and 3 of the last slide)
+(where 0 is the index of the first slide and 3 of the last slide. keep the brackets in the url they are not optional.)
 
+You can also view a specific slide:
+
+`````bash
+    curl --data '<document>...</document>' tty.zone/4
+`````
 
 ##License##
 MIT
