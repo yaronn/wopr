@@ -4,7 +4,7 @@
 
    <page>
 
-      <item col="0" row="0" colSpan="4" rowSpan="3">
+      <item col="0" row="0" colSpan="6" rowSpan="3">
   
         <markdown style-paragraph="chalk.white" style-strong="chalk.cyan.underline" style-em="chalk.green" border-type="line" border-fg="gray">
           <markdown>
@@ -14,7 +14,7 @@
           
       </item>
       
-      <item col="0" row="3" colSpan="8" rowSpan="8">
+      <item col="0" row="3" colSpan="6" rowSpan="8">
   
         <line xPadding="5" showLegend="true" legend-width="12" border-type="line" border-fg="gray">
           <data>
@@ -27,14 +27,14 @@
       </item>
       
       
-      <item col="4" row="3" colSpan="8" rowSpan="4">
+      <item col="6" row="3" colSpan="6" rowSpan="4">
   
-        <bar barWidth="4" barSpacing="3" xOffset="16" maxHeight="5" height="100%"  border-type="line" border-fg="gray" data-titles="OP1,OP2,AG-US,AG-EU,BCKP1" data-data="2,4,2,5,3" />
+        <bar barWidth="4" barSpacing="3" xOffset="10" maxHeight="5" height="100%"  border-type="line" border-fg="gray" data-titles="OP1,OP2,AG-US,AG-EU,BCKP1" data-data="2,4,2,5,3" />
         
       </item>
       
       
-      <item col="4" row="7" colSpan="8" rowSpan="4">
+      <item col="6" row="7" colSpan="6" rowSpan="4">
   
         <donut radius="12" spacing="1"  border-type="line" border-fg="gray">
           <data>
@@ -47,7 +47,7 @@
       </item>
       
 
-      <item col="4" row="0" colSpan="4" rowSpan="3">
+      <item col="6" row="0" colSpan="6" rowSpan="3">
   
          <table fg="white" width="30%" height="30%"  border-type="line" border-fg="gray" columnSpacing="5" columnWidth="6,2,5,4,4,4,25" data-headers=",#,time,pass,fail,pct,status" interactive="false">
           <data-data>
