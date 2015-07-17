@@ -1,7 +1,8 @@
 **tl;dr**
 
 `````bash
-    $> curl -N tty.zone/[0-2]?auto
+    $> curl tty.zone
+    $> curl tty.zone/1
 `````
 
 ## WOPR
