@@ -7,6 +7,9 @@ a=$(curl -s http:// www.netscape.com/); echo "$a"
 
 
 
-a=$(curl -s https://gist.githubusercontent.com/yaronn/6a8f6947fedd88f783d3/raw/12a9f3216769834f356a458f0b8ee6049e59206d/gistfile1.txt); p=0; while true; do curl -NL --data "$a" http://localhost:1337/?p=$((p++)); read; done
+a=$(curl -s https://gist.githubusercontent.com/yaronn/6a8f6947fedd88f783d3/raw/12a9f3216769834f356a458f0b8ee6049e59206d/gistfile1.txt); p=0; while true; do curl -NL --data "$a" http://localhost:1337/$((p++)); read; done
 
+
+
+p=0; while true; do curl tty.zone/$((p++)); read; done
 
