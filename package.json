@@ -1,5 +1,5 @@
 {
-  "name": "doc-term",
+  "name": "wopr",
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
@@ -7,19 +7,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/yaronn01/doc-term.git"
+    "url": "https://github.com/yaronn/wopr.git"
   },
   "author": "Yaron Naveh (yaronn01@gmail.com)",
   "bin": {
-    "doc-term": "./bin/presenter-cli.js"
+    "wopr": "./bin/presenter-cli.js"
   },
   "license": "ISC",
   "dependencies": {
     "blessed": "^0.1.7",
-    "blessed-contrib": "git+https://github.com/yaronn/blessed-contrib.git",
+    "blessed-contrib": "^2.3.1",
     "xml2js": "^0.4.9"
   },
-  "homepage": "https://bitbucket.org/yaronn01/doc-term#readme",
+  "homepage": "https://github.com/yaronn/wopr",
   "directories": {
     "test": "test"
   },

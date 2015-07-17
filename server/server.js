@@ -1,3 +1,8 @@
+
+
+require('supports-color').support = function() {return true;}
+
+
 var http = require('http')
   , url = require('url')
   , fs = require('fs')
@@ -18,7 +23,7 @@ http.createServer(function (req, res) {
               req.connection.destroy();
       });
       req.on('end', function () {
-          present(req, res, body, function(err) {
+          present(req, res, body, 0, function(err) {
             if (err) return contrib.serverError(req, res, err)
           })
       });
@@ -27,14 +32,14 @@ http.createServer(function (req, res) {
       if (req.headers["user-agent"].indexOf('curl')!=-1) {
         
         var content = fs.readFileSync(__dirname+'/../test/sample.xml')
-        present(req, res, content, function(err) {
+        present(req, res, content, 3000, function(err) {
           if (err) return contrib.serverError(req, res, err)
         })
         
         //else return contrib.serverError(req, res, "this url only supports POST")
       }
       else {
-        res.writeHead(301, {'Location': 'https://github.com/yaronn/blessed-contrib'});
+        res.writeHead(301, {'Location': 'https://github.com/yaronn/wopr'});
         res.end()
         return
       }

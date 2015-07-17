@@ -7,7 +7,7 @@ var parse = require('xml2js').parseString
   , contrib = require('blessed-contrib')
 
 
-function present(req, res, body, cba) {
+function present(req, res, body, delay, cba) {
   
   blessed.Screen.global = null
   blessed.Program.global = null
@@ -45,13 +45,14 @@ function present(req, res, body, cba) {
       viewer = new Viewer(doc.document, screen)
       var err = viewer.renderPage(page)
       if (err!==null) return cba(err)
-        
+      
+      //note the setTimeout is necessary even if delay is 0
       setTimeout(function() {
         //res.write('\r\n\r\n\r\n\r\nPress Return to continue\r\n\r\n')
         //restore cursor
         res.end('\033[?25h')
         return cba()
-      }, 0)
+      }, delay)
       
     }
     

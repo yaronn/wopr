@@ -8,7 +8,7 @@
   
         <markdown style-paragraph="chalk.white" style-strong="chalk.cyan.underline" style-em="chalk.green" border-type="line" border-fg="gray">
           <markdown>
-              *doc-term* is a markup format for rich terminal `reports`, `presentations` and `inforgraphics`. Build the report from any language and view it locally or remotely via curl. &#10;&#10;More information: [http://www.w.com](http://www.w.com) or [http://www.w.com](http://www.w.com) &#10;&#10;Press **Return** for the next slide
+              *wopr* is a markup format for rich terminal `reports`, `presentations` and `inforgraphics`. Build the report from any language and view it locally or remotely via curl. &#10;&#10;More information: [https://github.com/yaronn/wopr](https://github.com/yaronn/wopr) or [https://twitter.com/YaronNaveh](https://twitter.com/YaronNaveh) &#10;&#10;Press **Return** for the next slide
           </markdown>
         </markdown>
           
@@ -74,7 +74,7 @@
   
         <markdown style-paragraph="chalk.white" style-strong="chalk.cyan.underline" style-em="chalk.green" border-type="line" border-fg="gray">
           <markdown>
-              *doc-term* is a markup format for rich terminal `reports`, `presentations` and `inforgraphics`. &#10;Build the report from any language and view it locally or remotely via curl. &#10;More information: [http://www.w.com](http://www.w.com) or [http://www.w.com](http://www.w.com) &#10;&#10;Press **Return** for the next slide
+              *wopr* is a markup format for rich terminal `reports`, `presentations` and `inforgraphics`. &#10;Build the report from any language and view it locally or remotely via curl. &#10;More information: [https://github.com/yaronn/wopr](https://github.com/yaronn/wopr) or [https://twitter.com/YaronNaveh](https://twitter.com/YaronNaveh) &#10;&#10;Press **Return** for the next slide
           </markdown>
         </markdown>
           
@@ -143,11 +143,12 @@
 
     
     <page>
-        <item col="4" row="5" colSpan="5" rowSpan="2">
+        
+        <item col="4" row="6" colSpan="5" rowSpan="2">
   
             <markdown style-paragraph="chalk.white" style-strong="chalk.cyan.underline" style-em="chalk.green">
               <markdown>
-                  *Thank you!*&#10;&#10;&#10;&#10;More information: &#10;&#10;[http://www.w.com](http://www.w.com)&#10;&#10;[http://www.w.com](http://www.w.com)&#10;&#10;&#10;&#10;created by @YaronNaveh
+                  *Thank you!*&#10;&#10;&#10;&#10;More information: &#10;&#10;[https://github.com/yaronn/wopr](https://github.com/yaronn/wopr)&#10;&#10;[https://twitter.com/YaronNaveh](https://twitter.com/YaronNaveh)&#10;&#10;&#10;&#10;created by @YaronNaveh
               </markdown>
             </markdown>
           
