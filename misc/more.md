@@ -16,9 +16,11 @@ Yaron Naveh ([@YaronNaveh](http://twitter.com/YaronNaveh))
 
 ##Demo##
 
-[pics]
+<img src="../docs/images/charts.png" alt="term" width="800">
 
-[source](https://raw.githubusercontent.com/yaronn/wopr/master/test/sample.xml)
+<img src="../docs/images/map.png" alt="term" width="800">
+
+([source](https://raw.githubusercontent.com/yaronn/wopr/master/test/sample.xml))
 
 You can view this presentation in your terminal with no installation:
 
@@ -34,7 +36,7 @@ If the presentation is distorted try the verbose url which specifies your screen
     $> curl -N tty.zone/[0-2]?auto\&cols=$(($COLUMNS))\&rows=(($LINES))\&terminal=(($TERM))
 `````
 
-These slides auto play. You can try this instead to control slides with the Return or Space keys:
+These slides auto play. If you prefer to manually control them with the Return or Space keys try this:
 
 `````bash
     $> p=0; while true; do curl tty.zone/$((p++)); read; done
