@@ -25,7 +25,8 @@ Yaron Naveh ([@YaronNaveh](http://twitter.com/YaronNaveh))
 This presentation is just [some xml](https://raw.githubusercontent.com/yaronn/wopr/master/test/sample.xml). You can view it from the web with no installation:
 
 `````bash
-    $> curl -N tty.zone/[0-2]?auto
+    $> curl tty.zone
+    $> curl tty.zone/1
 `````
 
 If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com.
@@ -33,7 +34,7 @@ If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute
 If the presentation is distorted try the verbose url which specifies your screen size:
 
 `````bash
-    $> curl -N tty.zone/[0-2]?auto\&cols=$((COLUMNS))\&rows=$((LINES-5))\&terminal=${TERM}
+    $> curl tty.zone?auto\&cols=$((COLUMNS))\&rows=$((LINES-5))\&terminal=${TERM}
 `````
 
 You can also use a local viewer rather than curl:
@@ -63,7 +64,7 @@ You have 3 options to view this report:
 **option 1: POST it to the wopr online viewer**
 
 `````bash
-    $> curl -N --data '<document><page><item col="0" row="0" colSpan="5" rowSpan="4"><bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" /></item></page></document>' tty.zone
+    $> curl --data '<document><page><item col="0" row="0" colSpan="5" rowSpan="4"><bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" /></item></page></document>' tty.zone
 `````
 
 If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com.
@@ -73,7 +74,7 @@ If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute
 Save the report content in some url (e.g. gist) and then:
 
 `````bash
-    $> a=$(curl -s https://gist.githubusercontent.com/yaronn/e6eec6d0e7adac63c83f/raw/50aca544d26a32aa189e790635c8679067017948/gistfile1.xml); curl -N --data "$a" tty.zone
+    $> a=$(curl -s https://gist.githubusercontent.com/yaronn/e6eec6d0e7adac63c83f/raw/50aca544d26a32aa189e790635c8679067017948/gistfile1.xml); curl --data "$a" tty.zone
 `````
 
 (note you need the gist raw url)
@@ -176,7 +177,7 @@ Depending on how you use a report, you have a few ways to view it:
 **option 1: POST it to the wopr online viewer**
 
 `````bash
-    $> curl -N --data '<document><page><item col="0" row="0" colSpan="5" rowSpan="4"><bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" /></item></page></document>' tty.zone
+    $> curl --data '<document><page><item col="0" row="0" colSpan="5" rowSpan="4"><bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" /></item></page></document>' tty.zone
 `````
 
 If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com.
@@ -186,7 +187,7 @@ If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute
 Save the report content in some url (e.g. gist) and then:
 
 `````bash
-    $> a=$(curl -s https://gist.githubusercontent.com/yaronn/e6eec6d0e7adac63c83f/raw/50aca544d26a32aa189e790635c8679067017948/gistfile1.xml); curl -N --data "$a" tty.zone
+    $> a=$(curl -s https://gist.githubusercontent.com/yaronn/e6eec6d0e7adac63c83f/raw/50aca544d26a32aa189e790635c8679067017948/gistfile1.xml); curl --data "$a" tty.zone
 `````
 
 (note you need the gist raw url)
@@ -216,8 +217,6 @@ When using the online reports, you might need to adjust the slides size based on
 
 (note the backslashs in the query - required in most shells)
 
-Tip: disable curl buffering and allow it to follow redirect by always using the -LN flag
-
 **Pages**
 
 When viewing a report with the local viewer you can advance slides with the Return or Space keys.
@@ -242,6 +241,8 @@ You can also view a specific slide:
 `````bash
     curl --data '<document>...</document>' tty.zone/4
 `````
+
+Tip: disable curl buffering and allow it to follow redirects by using the -LN flag
 
 ##License##
 MIT
