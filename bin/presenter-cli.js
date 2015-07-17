@@ -33,7 +33,6 @@ parse(xml, function (err, doc) {
 function next() {
   page++
   if (page>=viewer.document.page.length) process.exit()
-  viewer.renderPage(page, function(err) {
-    if (err) throw err
-  })
+  var err = viewer.renderPage(page)
+  if (err!==null) console.log(err)
 }
