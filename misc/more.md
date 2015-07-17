@@ -1,7 +1,7 @@
 **tl;dr**
 
 `````bash
-    curl -N tty.zone/[0-2]?auto
+    $> curl -N tty.zone/[0-2]?auto
 `````
 
 ## WOPR
@@ -22,7 +22,7 @@ Yaron Naveh ([@YaronNaveh](http://twitter.com/YaronNaveh))
 You can view this presentation in your terminal with no installation:
 
 `````bash
-    curl -N tty.zone/[0-2]?auto
+    $> curl -N tty.zone/[0-2]?auto
 `````
 
 If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com.
@@ -30,21 +30,21 @@ If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute
 If the presentation is distorted try the verbose url which specifies your screen size:
 
 `````bash
-    curl -N tty.zone/[0-2]?auto\&cols=$(($COLUMNS))\&rows=(($LINES))\&terminal=(($TERM))
+    $> curl -N tty.zone/[0-2]?auto\&cols=$(($COLUMNS))\&rows=(($LINES))\&terminal=(($TERM))
 `````
 
 These slides auto play. You can try this instead to control slides with the Return or Space keys:
 
 `````bash
-    p=0; while true; do curl tty.zone/$((p++)); read; done
+    $> p=0; while true; do curl tty.zone/$((p++)); read; done
 `````
 
 You can also use a local viewer rather than curl:
 
 `````bash
-    npm install -g wopr
-    curl https://raw.githubusercontent.com/yaronn/wopr/master/test/sample.xml > wopr-sample.xml
-    wopr wopr-sample.xml
+    $> npm install -g wopr
+    $> curl https://raw.githubusercontent.com/yaronn/wopr/master/test/sample.xml > wopr-sample.xml
+    $> wopr wopr-sample.xml
 `````
 
 ##Writing your first terminal report##
@@ -66,7 +66,7 @@ You have 3 options to view this report:
 **option 1: POST it to the wopr online viewer**
 
 `````bash
-    curl -N --data '<document><page><item col="0" row="0" colSpan="5" rowSpan="4"><bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" /></item></page></document>' tty.zone
+    $> curl -N --data '<document><page><item col="0" row="0" colSpan="5" rowSpan="4"><bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" /></item></page></document>' tty.zone
 `````
 
 If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com.
@@ -76,7 +76,7 @@ If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute
 Save the report content in some url (e.g. gist) and then:
 
 `````bash
-    a=$(curl -s https://gist.githubusercontent.com/yaronn/e6eec6d0e7adac63c83f/raw/50aca544d26a32aa189e790635c8679067017948/gistfile1.xml); curl -N --data "$a" tty.zone
+    $> a=$(curl -s https://gist.githubusercontent.com/yaronn/e6eec6d0e7adac63c83f/raw/50aca544d26a32aa189e790635c8679067017948/gistfile1.xml); curl -N --data "$a" tty.zone
 `````
 
 (note you need the gist raw url)
@@ -88,8 +88,8 @@ If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute
 Save the report xml to report.xml and then:
 
 `````bash
-    npm install -g wopr
-    wopr report.xml
+    $> npm install -g wopr
+    $> wopr report.xml
 `````
 
 Note the local viewer does not send anything online and does not require network.
@@ -179,7 +179,7 @@ Depending on how you use a report, you have a few ways to view it:
 **option 1: POST it to the wopr online viewer**
 
 `````bash
-    curl -N --data '<document><page><item col="0" row="0" colSpan="5" rowSpan="4"><bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" /></item></page></document>' tty.zone
+    $> curl -N --data '<document><page><item col="0" row="0" colSpan="5" rowSpan="4"><bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" /></item></page></document>' tty.zone
 `````
 
 If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com.
@@ -189,7 +189,7 @@ If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute
 Save the report content in some url (e.g. gist) and then:
 
 `````bash
-    a=$(curl -s https://gist.githubusercontent.com/yaronn/e6eec6d0e7adac63c83f/raw/50aca544d26a32aa189e790635c8679067017948/gistfile1.xml); curl -N --data "$a" tty.zone
+    $> a=$(curl -s https://gist.githubusercontent.com/yaronn/e6eec6d0e7adac63c83f/raw/50aca544d26a32aa189e790635c8679067017948/gistfile1.xml); curl -N --data "$a" tty.zone
 `````
 
 (note you need the gist raw url)
@@ -201,8 +201,8 @@ If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute
 Save the report xml to report.xml and then:
 
 `````bash
-    npm install -g wopr
-    wopr report.xml
+    $> npm install -g wopr
+    $> wopr report.xml
 `````
 
 Note the local viewer does not send anything online and does not require network.
@@ -214,7 +214,7 @@ When using the online reports, you might need to adjust the slides size based on
     tty.zone?\&cols=$(($COLUMNS))\&rows=(($LINES))\&terminal=(($TERM))
     
     //or use hard coded values
-    //curl -N tty.zone?auto\&cols=200\&rows=50
+    //curl -N tty.zone?\&cols=200\&rows=50
 `````
 
 (note the backslashs in the query - required in most shells)
