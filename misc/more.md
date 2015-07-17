@@ -6,9 +6,9 @@
 
 ## WOPR
 
-A markup language for building rich terminal reports, presentations and infographics.
+A markup language for creating rich terminal reports, presentations and infographics.
 
-Generate reports using any language. View reports locally or remotely via curl. Use [blessed](https://github.com/chjj/blessed) and [blessed-contrib](https://github.com/yaronn/blessed-contrib) widgets.
+View reports from the web via curl. Use [blessed](https://github.com/chjj/blessed) and [blessed-contrib](https://github.com/yaronn/blessed-contrib) widgets.
 
 **Contributors:**
 
@@ -20,9 +20,8 @@ Yaron Naveh ([@YaronNaveh](http://twitter.com/YaronNaveh))
 
 <img src="../docs/images/map.png" alt="term" width="800">
 
-([source](https://raw.githubusercontent.com/yaronn/wopr/master/test/sample.xml))
 
-You can view this presentation in your terminal with no installation:
+This presentation is just [some xml](https://raw.githubusercontent.com/yaronn/wopr/master/test/sample.xml). You can view it from the web with no installation:
 
 `````bash
     $> curl -N tty.zone/[0-2]?auto
@@ -33,13 +32,7 @@ If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute
 If the presentation is distorted try the verbose url which specifies your screen size:
 
 `````bash
-    $> curl -N tty.zone/[0-2]?auto\&cols=$(($COLUMNS))\&rows=(($LINES))\&terminal=(($TERM))
-`````
-
-These slides auto play. If you prefer to manually control them with the Return or Space keys try this:
-
-`````bash
-    $> p=0; while true; do curl tty.zone/$((p++)); read; done
+    $> curl -N tty.zone/[0-2]?auto\&cols=$((COLUMNS))\&rows=$((LINES-5))\&terminal=${TERM}
 `````
 
 You can also use a local viewer rather than curl:
@@ -214,7 +207,7 @@ Note the local viewer does not send anything online and does not require network
 When using the online reports, you might need to adjust the slides size based on your font / resolution or use non-xterm. tty.zone supports the following query params:
 
 `````bash
-    tty.zone?\&cols=$(($COLUMNS))\&rows=(($LINES))\&terminal=(($TERM))
+    tty.zone?\&cols=$((COLUMNS))\&rows=$((LINES-5))\&terminal=${TERM}
     
     //or use hard coded values
     //curl -N tty.zone?\&cols=200\&rows=50
@@ -222,6 +215,7 @@ When using the online reports, you might need to adjust the slides size based on
 
 (note the backslashs in the query - required in most shells)
 
+Tip: disable curl buffering and allow it to follow redirect by always using the -LN flag
 
 **Pages**
 
