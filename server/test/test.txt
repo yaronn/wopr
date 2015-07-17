@@ -14,7 +14,8 @@ a=$(curl -s https://gist.githubusercontent.com/yaronn/6a8f6947fedd88f783d3/raw/1
 p=0; while true; do curl tty.zone/$((p++)); read; done
 
 
-sudo PORT=1337 FORCE_COLOR=1 forever start server.js
+sudo PORT=8080 FORCE_COLOR=1 forever start server.js
+sudo PORT=8081 FORCE_COLOR=1 forever start server.js
 
 
 curl -N tty.zone/[0-2]?auto
