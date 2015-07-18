@@ -8,7 +8,7 @@
 
 A markup language for creating rich terminal reports, presentations and infographics.
 
-Put an xml report on the web (e.g. gist) and view it via curl!
+Put a report on the web (e.g. gist) and view it via curl!
 
 **Contributors:** Yaron Naveh ([@YaronNaveh](http://twitter.com/YaronNaveh))
 
@@ -127,7 +127,7 @@ The box element is in the same page but in a different position.
 **Widgets**
 
 The available widgets are the ones that exist in the [blessed](https://github.com/chjj/blessed) and [blessed-contrib](https://github.com/yaronn/blessed-contrib) projects.
-You can infer the xml representation of a javascript widget using a simple convention. So this:
+You can infer the xml representation of a javascript widget using a simple convention. Assume that you would instantiate some blessed widget with this javascript:
 
 `````javascript
     blessed.widget({ string: "5"
@@ -140,7 +140,7 @@ You can infer the xml representation of a javascript widget using a simple conve
     })
 `````
 
-becomes this:
+Then here is how you would represent it in xml:
     
 `````xml
     <widget string="5" int="1" intArray="1,2,3" stringArray="a,b,c" object-innerProp="1">
@@ -167,7 +167,7 @@ You can also look at the [demo xml](https://raw.githubusercontent.com/yaronn/wop
 
 Depending on how you use a report, you have a few ways to view it. On Windows you will probably only be able to use the third option and need to [install the fonts](http://webservices20.blogspot.com/2015/04/running-terminal-dashboards-on-windows.html) for best view.
 
-**option 1: POST it to the wopr online viewer**
+**Option 1: POST it to the wopr online viewer**
 
 `````bash
     $> curl --data '<document><page><item col="0" row="0" colSpan="5" rowSpan="4"><bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" /></item></page></document>' tty.zone?cols=$((COLUMNS))
@@ -175,7 +175,7 @@ Depending on how you use a report, you have a few ways to view it. On Windows yo
 
 If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com.
 
-**option 2: POST it from external url**
+**Option 2: POST it from external url**
 
 Save the report content in some url (e.g. gist) and then:
 
@@ -187,9 +187,9 @@ Save the report content in some url (e.g. gist) and then:
 
 If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com.
 
-Tip: If you use url shortener (e.g. bit.ly) add the -L flag to curl to follow redirects.
+Tip: If you use a url shortener (e.g. bit.ly) add the -L flag to curl to follow redirects.
 
-**option 3: via the local viewer**
+**Option 3: via the local viewer**
 
 Save the report xml to report.xml and then:
 
@@ -201,13 +201,17 @@ Save the report xml to report.xml and then:
 Note the local viewer does not send anything online and does not require network.
 
 
-When using the online reports, you might need to adjust the slides size based on your font / resolution or use non-xterm. tty.zone supports the following query params:
+**View customization**
+When using the online reports, you might need to adjust the slides size based on your font / resolution or use non-xterm terminal. tty.zone supports the following query params:
+
+`````bash
+    curl -N tty.zone?\&cols=200\&rows=50\&terminal=xterm
+`````
+
+You can infer them automatically from your environment:
 
 `````bash
     tty.zone?\&cols=$((COLUMNS))\&rows=$((LINES-5))\&terminal=${TERM}
-    
-    //or use hard coded values
-    //curl -N tty.zone?\&cols=200\&rows=50
 `````
 
 (note the backslashs in the query - required in most shells)
@@ -217,23 +221,23 @@ When using the online reports, you might need to adjust the slides size based on
 When viewing a report with the local viewer you can advance slides with the Return or Space keys.
 When using the online viewer you have 2 options:
 
-Option 1 - manually advance slides with Return or Space:
+**Option 1:** Manually advance slides with Return or Space:
 
 `````bash
-    p=0; while true; do curl --data '<document>...</document>' tty.zone/$((p++))?cols=$((COLUMNS)); read; done
+    p=0; while true; do curl tty.zone/$((p++))?cols=$((COLUMNS)); read; done
 `````
 
-Option 2 - auto advance slides after 5 seconds:
+**Option 2:** Slides advance automatically every 5 seconds:
 
 `````bash
-    curl -N --data '<document>...</document>' tty.zone/[0-3]?auto\&cols=$((COLUMNS))
+    curl -N tty.zone/[0-2]?auto\&cols=$((COLUMNS))
 `````
 
-Where 0 is the index of the first slide and 3 of the last slide. keep the brackets in the url they are not optional.
+Where 0 is the index of the first slide and 2 of the last slide. Keep the brackets in the url (they are not to express optional argument).
 
 Tip: disable curl buffering with the -N flag
 
-You can also view a specific slide:
+You can also view a specific slide (#4 in this case):
 
 `````bash
     curl --data '<document>...</document>' tty.zone/4?cols=$((COLUMNS))
