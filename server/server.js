@@ -33,7 +33,7 @@ http.createServer(function (req, res) {
   else {
       if (req.headers["user-agent"].indexOf('curl')!=-1) {
         
-        var content = fs.readFileSync(__dirname+'/../test/sample.xml')
+        var content = fs.readFileSync(__dirname+'/../examples/sample.xml')
         present(req, res, content, function(err) {
             if (err) console.log(new Error().stack)
             if (err) return contrib.serverError(req, res, err)

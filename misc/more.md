@@ -18,7 +18,7 @@ Put a report on the web (e.g. gist) and view it via curl!
 
 <img src="../docs/images/map.png" alt="term" width="800">
 
-([xml source](https://raw.githubusercontent.com/yaronn/wopr/master/test/sample.xml))
+([xml source](https://raw.githubusercontent.com/yaronn/wopr/master/examples/sample.xml))
 
 
 You can view it from the web with no installation:
@@ -34,7 +34,7 @@ You can also use a local viewer rather than curl:
 
 `````bash
     $> npm install -g wopr
-    $> curl https://raw.githubusercontent.com/yaronn/wopr/master/test/sample.xml > wopr-sample.xml
+    $> curl https://raw.githubusercontent.com/yaronn/wopr/master/examples/sample.xml > wopr-sample.xml
     $> wopr wopr-sample.xml
 `````
 
@@ -54,7 +54,7 @@ Here is a simple report with a bar chart:
 
 You have 3 options to view this report:
 
-**option 1: POST it to the wopr online viewer**
+**Option 1: POST it to the wopr online viewer**
 
 `````bash
     $> curl --data '<document><page><item col="0" row="0" colSpan="5" rowSpan="4"><bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" /></item></page></document>' tty.zone?cols=$((COLUMNS))
@@ -62,7 +62,7 @@ You have 3 options to view this report:
 
 If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com.
 
-**option 2: POST it from external url**
+**Option 2: POST it from external url**
 
 Save the report content in some url (e.g. gist) and then:
 
@@ -74,7 +74,7 @@ Save the report content in some url (e.g. gist) and then:
 
 If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com.
 
-**option 3: via the local viewer**
+**Option 3: Via the local viewer**
 
 Save the report xml to report.xml and then:
 
@@ -159,7 +159,7 @@ Then here is how you would represent it in xml:
     </widget>
 `````
 
-You can also look at the [demo xml](https://raw.githubusercontent.com/yaronn/wopr/master/test/sample.xml) to get more samples.
+You can also look at the [demo xml](https://raw.githubusercontent.com/yaronn/wopr/master/examples/sample.xml) to get more samples.
 
 
 ##Viewing Reports##
