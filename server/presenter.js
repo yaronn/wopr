@@ -1,5 +1,3 @@
-
-
 var parse = require('xml2js').parseString
   , url = require('url')
   , Viewer = require('../lib/document-viewer.js')

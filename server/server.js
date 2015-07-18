@@ -1,4 +1,9 @@
 
+
+var blessed = require('blessed')
+patchBlessed()
+
+
 var http = require('http')
   , url = require('url')
   , fs = require('fs')
@@ -20,6 +25,7 @@ http.createServer(function (req, res) {
       });
       req.on('end', function () {
           present(req, res, body, function(err) {
+            if (err) console.log(new Error().stack)
             if (err) return contrib.serverError(req, res, err)
           })
       });
@@ -29,6 +35,7 @@ http.createServer(function (req, res) {
         
         var content = fs.readFileSync(__dirname+'/../test/sample.xml')
         present(req, res, content, function(err) {
+            if (err) console.log(new Error().stack)
             if (err) return contrib.serverError(req, res, err)
         })
         return
@@ -42,5 +49,23 @@ http.createServer(function (req, res) {
     
     
 }).listen(port);
+
+/*in the context of web server the following code will leak:
+
+http.createServer(function (req, res) {
+        var s = contrib.createScreen(req, res)
+        //alternatively:
+        //var program = new blessed.Program()
+        
+        setTimeout(function() {res.end(Date.now() + "")}, 0)
+    
+}).listen(8080);
+
+this comes down to event registrations on program (the latest commit here points them https://github.com/yaronn/blessed-patch-temp)
+*/
+function patchBlessed() {
+  blessed.Program.prototype.listem = function() {}
+  process.on = function() {}
+}
 
 console.log('Server running at http://127.0.0.1:'+port+'/');
