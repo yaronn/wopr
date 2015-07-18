@@ -1,19 +1,16 @@
 **tl;dr**
 
 `````bash
-    $> curl tty.zone?cols=$((COLUMNS))
-    $> curl tty.zone/1?cols=$((COLUMNS))
+    $> curl tty.zone?auto\&cols=$((COLUMNS))
 `````
 
 ## WOPR
 
 A markup language for creating rich terminal reports, presentations and infographics.
 
-A report is just a simple xml. You can put it on the web (e.g. gist) and view it via curl! Use [blessed](https://github.com/chjj/blessed) and [blessed-contrib](https://github.com/yaronn/blessed-contrib) widgets.
+Put an xml report on the web (e.g. gist) and view it via curl! Use [blessed](https://github.com/chjj/blessed) and [blessed-contrib](https://github.com/yaronn/blessed-contrib) widgets.
 
-**Contributors:**
-
-Yaron Naveh ([@YaronNaveh](http://twitter.com/YaronNaveh))
+**Contributors:** Yaron Naveh ([@YaronNaveh](http://twitter.com/YaronNaveh))
 
 ##Demo##
 
