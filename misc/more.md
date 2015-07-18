@@ -1,15 +1,15 @@
 **tl;dr**
 
 `````bash
-    $> curl tty.zone
-    $> curl tty.zone/1
+    $> curl tty.zone?cols=$((COLUMNS))
+    $> curl tty.zone/1?cols=$((COLUMNS))
 `````
 
 ## WOPR
 
 A markup language for creating rich terminal reports, presentations and infographics.
 
-View reports from the web via curl. Use [blessed](https://github.com/chjj/blessed) and [blessed-contrib](https://github.com/yaronn/blessed-contrib) widgets.
+A report is just a simple xml. You can put it on the web (e.g. gist) and view it via curl! Use [blessed](https://github.com/chjj/blessed) and [blessed-contrib](https://github.com/yaronn/blessed-contrib) widgets.
 
 **Contributors:**
 
@@ -21,21 +21,17 @@ Yaron Naveh ([@YaronNaveh](http://twitter.com/YaronNaveh))
 
 <img src="../docs/images/map.png" alt="term" width="800">
 
+([xml source](https://raw.githubusercontent.com/yaronn/wopr/master/test/sample.xml))
 
-This presentation is just [some xml](https://raw.githubusercontent.com/yaronn/wopr/master/test/sample.xml). You can view it from the web with no installation:
+
+You can view it from the web with no installation:
 
 `````bash
-    $> curl tty.zone
-    $> curl tty.zone/1
+    $> curl tty.zone?cols=$((COLUMNS))
+    $> curl tty.zone/1?cols=$((COLUMNS))
 `````
 
 If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com.
-
-If the presentation is distorted try the verbose url which specifies your screen size:
-
-`````bash
-    $> curl tty.zone?auto\&cols=$((COLUMNS))\&rows=$((LINES-5))\&terminal=${TERM}
-`````
 
 You can also use a local viewer rather than curl:
 
@@ -64,7 +60,7 @@ You have 3 options to view this report:
 **option 1: POST it to the wopr online viewer**
 
 `````bash
-    $> curl --data '<document><page><item col="0" row="0" colSpan="5" rowSpan="4"><bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" /></item></page></document>' tty.zone
+    $> curl --data '<document><page><item col="0" row="0" colSpan="5" rowSpan="4"><bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" /></item></page></document>' tty.zone?cols=$((COLUMNS))
 `````
 
 If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com.
@@ -74,7 +70,7 @@ If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute
 Save the report content in some url (e.g. gist) and then:
 
 `````bash
-    $> a=$(curl -s https://gist.githubusercontent.com/yaronn/e6eec6d0e7adac63c83f/raw/50aca544d26a32aa189e790635c8679067017948/gistfile1.xml); curl --data "$a" tty.zone
+    $> a=$(curl -s https://gist.githubusercontent.com/yaronn/e6eec6d0e7adac63c83f/raw/50aca544d26a32aa189e790635c8679067017948/gistfile1.xml); curl --data "$a" tty.zone?cols=$((COLUMNS))
 `````
 
 (note you need the gist raw url)
@@ -177,7 +173,7 @@ Depending on how you use a report, you have a few ways to view it:
 **option 1: POST it to the wopr online viewer**
 
 `````bash
-    $> curl --data '<document><page><item col="0" row="0" colSpan="5" rowSpan="4"><bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" /></item></page></document>' tty.zone
+    $> curl --data '<document><page><item col="0" row="0" colSpan="5" rowSpan="4"><bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" /></item></page></document>' tty.zone?cols=$((COLUMNS))
 `````
 
 If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com.
@@ -187,7 +183,7 @@ If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute
 Save the report content in some url (e.g. gist) and then:
 
 `````bash
-    $> a=$(curl -s https://gist.githubusercontent.com/yaronn/e6eec6d0e7adac63c83f/raw/50aca544d26a32aa189e790635c8679067017948/gistfile1.xml); curl --data "$a" tty.zone
+    $> a=$(curl -s https://gist.githubusercontent.com/yaronn/e6eec6d0e7adac63c83f/raw/50aca544d26a32aa189e790635c8679067017948/gistfile1.xml); curl --data "$a" tty.zone?cols=$((COLUMNS))
 `````
 
 (note you need the gist raw url)
@@ -225,13 +221,13 @@ When using the online viewer you have 2 options:
 Option 1 - manually advance slides with Return or Space:
 
 `````bash
-    p=0; while true; do curl --data '<document>...</document>' tty.zone/$((p++)); read; done
+    p=0; while true; do curl --data '<document>...</document>' tty.zone/$((p++))?cols=$((COLUMNS)); read; done
 `````
 
 Option 2 - auto advance slides after 5 seconds:
 
 `````bash
-    curl --data '<document>...</document>' tty.zone/[0-3]?auto
+    curl --data '<document>...</document>' tty.zone/[0-3]?auto\&cols=$((COLUMNS))
 `````
 
 (where 0 is the index of the first slide and 3 of the last slide. keep the brackets in the url they are not optional.)
@@ -239,7 +235,7 @@ Option 2 - auto advance slides after 5 seconds:
 You can also view a specific slide:
 
 `````bash
-    curl --data '<document>...</document>' tty.zone/4
+    curl --data '<document>...</document>' tty.zone/4?cols=$((COLUMNS))
 `````
 
 Tip: disable curl buffering and allow it to follow redirects by using the -LN flag
