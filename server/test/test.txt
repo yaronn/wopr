@@ -1,3 +1,5 @@
+
+
 p=0; while true; do curl -NL --data '<document><page><item col="0" row="0" colSpan="5" rowSpan="5"><line width="50" height="30" xPadding="5" showLegend="true" legend-width="12"><data><m title="us-east" style-line="red" x="t1,t2,t3" y="10,20,30" /><m title="us-west" style-line="blue" x="t1,t2,t3" y="20,40,10" /><m title="us-west" style-line="yellow" x="t1,t2,t3" y="50,10,10" /></data></line></item></page><page><item col="0" row="0" rowSpan="2" colSpan="2"><box content="123"></box></item></page></document>' http://localhost:1337/?$((p++)); read; done
 
 
@@ -25,3 +27,23 @@ curl -N ec2-23-21-64-152.compute-1.amazonaws.com/[0-2]?auto
 
 
 curl -N --data '<document><page><item col="0" row="0" colSpan="5" rowSpan="4"><bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" /></item></page></document>' tty.zone
+
+
+nginx:
+
+http {
+        upstream my {
+                server localhost:8080;
+                server localhost:8081;
+        }
+        server {
+                listen 80;
+                server_name tty.zone www.tty.zone;
+                location / {
+                        proxy_pass http://my;
+                        proxy_buffering off;
+                }
+        }
+
+...
+}
