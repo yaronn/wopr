@@ -1,14 +1,14 @@
 **tl;dr**
 
 `````bash
-    $> curl tty.zone?auto\&cols=$((COLUMNS))
+    $> curl -N tty.zone/[0-2]?auto\&cols=$((COLUMNS))
 `````
 
 ## WOPR
 
 A markup language for creating rich terminal reports, presentations and infographics.
 
-Put an xml report on the web (e.g. gist) and view it via curl! Use [blessed](https://github.com/chjj/blessed) and [blessed-contrib](https://github.com/yaronn/blessed-contrib) widgets.
+Put an xml report on the web (e.g. gist) and view it via curl!
 
 **Contributors:** Yaron Naveh ([@YaronNaveh](http://twitter.com/YaronNaveh))
 
@@ -187,6 +187,8 @@ Save the report content in some url (e.g. gist) and then:
 
 If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com.
 
+Tip: If you use url shortener (e.g. bit.ly) add the -L flag to curl to follow redirects.
+
 **option 3: via the local viewer**
 
 Save the report xml to report.xml and then:
@@ -224,18 +226,18 @@ Option 1 - manually advance slides with Return or Space:
 Option 2 - auto advance slides after 5 seconds:
 
 `````bash
-    curl --data '<document>...</document>' tty.zone/[0-3]?auto\&cols=$((COLUMNS))
+    curl -N --data '<document>...</document>' tty.zone/[0-3]?auto\&cols=$((COLUMNS))
 `````
 
-(where 0 is the index of the first slide and 3 of the last slide. keep the brackets in the url they are not optional.)
+Where 0 is the index of the first slide and 3 of the last slide. keep the brackets in the url they are not optional.
+
+Tip: disable curl buffering with the -N flag
 
 You can also view a specific slide:
 
 `````bash
     curl --data '<document>...</document>' tty.zone/4?cols=$((COLUMNS))
 `````
-
-Tip: disable curl buffering and allow it to follow redirects by using the -LN flag
 
 ##License##
 MIT
