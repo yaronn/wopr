@@ -47,3 +47,8 @@ http {
 
 ...
 }
+
+top + CTRL+I to get process cpu percent per all cores
+
+cat /var/log/nginx/error.log  | tail -10
+cat /var/log/nginx/access.log  | tail -10

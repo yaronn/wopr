@@ -165,7 +165,7 @@ You can also look at the [demo xml](https://raw.githubusercontent.com/yaronn/wop
 ##Viewing Reports##
 
 
-Depending on how you use a report, you have a few ways to view it:
+Depending on how you use a report, you have a few ways to view it. On Windows you will probably only be able to use the third option and need to [install the fonts](http://webservices20.blogspot.com/2015/04/running-terminal-dashboards-on-windows.html) for best view.
 
 **option 1: POST it to the wopr online viewer**
 
