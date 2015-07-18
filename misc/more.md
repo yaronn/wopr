@@ -200,6 +200,7 @@ Save the report xml to report.xml and then:
 
 Note the local viewer does not send anything online and does not require network.
 
+Tip: Maximize the terminal before viewing the report for best viewing experience
 
 **View customization**
 When using the online reports, you might need to adjust the slides size based on your font / resolution or use non-xterm terminal. tty.zone supports the following query params:
