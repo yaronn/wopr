@@ -31,7 +31,7 @@ http.createServer(function (req, res) {
       });
   }
   else {
-      if (req.headers["user-agent"].indexOf('curl')!=-1) {
+      if (req.headers["user-agent"] && req.headers["user-agent"].indexOf('curl')!=-1) {
         
         var content = fs.readFileSync(__dirname+'/../examples/sample.xml')
         present(req, res, content, function(err) {
