@@ -10,7 +10,7 @@ Put [a report](https://raw.githubusercontent.com/yaronn/wopr/master/examples/sam
 `````bash
     $> curl -N tty.zone/\[0-2\]\?auto\&cols=$((COLUMNS))
 `````
-(If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com)
+(If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com or use a [local viewer](https://github.com/yaronn/wopr/blob/master/misc/more.md#viewing-reports))
 
 ##Writing your first terminal report##
 
