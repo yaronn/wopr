@@ -2,8 +2,8 @@
 
 WOPR is a simple markup language for creating rich terminal reports, presentations and infographics.
 
-<img src="./examples/images/charts.png" alt="term" width="320">
-<img src="./examples/images/map.png" alt="term" width="380">
+<img src="./examples/images/charts.png" alt="term" width="320" />
+<img src="./examples/images/map.png" alt="term" width="380" />
 
 Put [a report](https://raw.githubusercontent.com/yaronn/wopr/master/examples/sample.xml) on the web (e.g. gist) and view it via curl:
 
@@ -13,6 +13,9 @@ Put [a report](https://raw.githubusercontent.com/yaronn/wopr/master/examples/sam
 (If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com or use a [local viewer](https://github.com/yaronn/wopr/blob/master/misc/more.md#viewing-reports))
 
 Created by Yaron Naveh ([@YaronNaveh](https://twitter.com/YaronNaveh))
+
+<img src="./examples/images/charts.png" alt="term" />
+<img src="./examples/images/map.png" alt="term" />
 
 ##Writing your first terminal report##
 
@@ -61,7 +64,7 @@ Save the report xml to report.xml and then:
 
 Note the local viewer does not send anything online and does not require network.
 
-<img src="./examples/images/charts.png" alt="term">
+<img src="./examples/images/charts.png" alt="term" />
 
 ##Markup Basics#
 
@@ -138,7 +141,7 @@ Then here is how you would represent it in xml:
 
 You can also look at the [demo xml](https://raw.githubusercontent.com/yaronn/wopr/master/examples/sample.xml) to get more samples.
 
-<img src="./examples/images/map.png" alt="term">
+<img src="./examples/images/map.png" alt="term" />
 
 ##Viewing Reports##
 
