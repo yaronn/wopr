@@ -2,8 +2,8 @@
 
 WOPR is a simple markup language for creating rich terminal reports, presentations and infographics.
 
-<img src="../docs/images/charts.png" alt="term" width="337">
-<img src="../docs/images/map.png" alt="term" width="400">
+<img src="./docs/images/charts.png" alt="term" width="337">
+<img src="./docs/images/map.png" alt="term" width="400">
 
 Put [a report](https://raw.githubusercontent.com/yaronn/wopr/master/examples/sample.xml) on the web (e.g. gist) and view it via curl:
 
@@ -61,7 +61,7 @@ Save the report xml to report.xml and then:
 
 Note the local viewer does not send anything online and does not require network.
 
-<img src="../docs/images/charts.png" alt="term">
+<img src="./docs/images/charts.png" alt="term">
 
 ##Markup Basics#
 
@@ -138,7 +138,7 @@ Then here is how you would represent it in xml:
 
 You can also look at the [demo xml](https://raw.githubusercontent.com/yaronn/wopr/master/examples/sample.xml) to get more samples.
 
-<img src="../docs/images/map.png" alt="term">
+<img src="./docs/images/map.png" alt="term">
 
 ##Viewing Reports##
 
