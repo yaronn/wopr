@@ -12,6 +12,8 @@ Put [a report](https://raw.githubusercontent.com/yaronn/wopr/master/examples/sam
 `````
 (If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com or use a [local viewer](https://github.com/yaronn/wopr/blob/master/misc/more.md#viewing-reports))
 
+Created by Yaron Naveh ([@YaronNaveh](https://twitter.com/YaronNaveh))
+
 ##Writing your first terminal report##
 
 Here is a simple report with a bar chart:
