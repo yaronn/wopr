@@ -2,9 +2,6 @@
 
 WOPR is a simple markup language for creating rich terminal reports, presentations and infographics.
 
-<img src="./examples/images/charts.png" alt="term" width="320" />
-<img src="./examples/images/map.png" alt="term" width="380" />
-
 Put [a report](https://raw.githubusercontent.com/yaronn/wopr/master/examples/sample.xml) on the web (e.g. gist) and view it via curl:
 
 `````bash
