@@ -1,37 +1,18 @@
 ## WOPR
 
-WOPR is a simple markup language for creating rich terminal reports, presentations and infographics.
-
 <img src="../docs/images/charts.png" alt="term" width="337">
 <img src="../docs/images/map.png" alt="term" width="400">
 
-Put a report on the web (e.g. gist) and view it via curl or a local viewer:
+WOPR is a simple markup language for creating rich terminal reports, presentations and infographics.
+
+Put a report on the web (e.g. gist) and view it via curl:
 
 `````bash
     $> curl -N tty.zone/\[0-2\]\?auto\&cols=$((COLUMNS))
 `````
-
 (If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com)
 
-The report is just a simple markup ([full source](https://raw.githubusercontent.com/yaronn/wopr/master/examples/sample.xml)):
-
-`````xml
-    <page>
-          <item col="8" row="0" colSpan="4" rowSpan="4" >
-            <map>
-              <markers>
-                    <m lat="37.5000" lon="-79.0000" color="magenta" />
-                    <m lat="18.0000" lon="80.5000" color="magenta" />
-              </markers>
-            </map>
-          </item>
-          ...
-    </page>
-`````
-<img src="../docs/images/charts.png" alt="term" width="800">
-
-<img src="../docs/images/map.png" alt="term" width="800">
-
+The report is just a ([simple xml markup](https://raw.githubusercontent.com/yaronn/wopr/master/examples/sample.xml)).
 
 ##Writing your first terminal report##
 
