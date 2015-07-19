@@ -59,6 +59,7 @@ Save the report xml to report.xml and then:
 
 Note the local viewer does not send anything online and does not require network.
 
+<img src="../docs/images/charts.png" alt="term">
 
 ##Markup Basics#
 
@@ -135,6 +136,7 @@ Then here is how you would represent it in xml:
 
 You can also look at the [demo xml](https://raw.githubusercontent.com/yaronn/wopr/master/examples/sample.xml) to get more samples.
 
+<img src="../docs/images/map.png" alt="term">
 
 ##Viewing Reports##
 
