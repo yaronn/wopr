@@ -20,7 +20,28 @@ Put a report on the web (e.g. gist) and view it via curl!
 
 <img src="../docs/images/map.png" alt="term" width="800">
 
-([xml source](https://raw.githubusercontent.com/yaronn/wopr/master/examples/sample.xml))
+This presentation is a simple markup:
+
+`````xml
+    <page>
+          
+          ...
+          
+          <item col="8" row="0" colSpan="4" rowSpan="4" >
+            <map>
+              <markers>
+                    <m lat="37.5000" lon="-79.0000" color="magenta" />
+                    <m lat="18.0000" lon="80.5000" color="magenta" />
+              </markers>
+            </map>
+          </item>
+          
+          ...
+          
+    </page>
+`````
+
+([full source](https://raw.githubusercontent.com/yaronn/wopr/master/examples/sample.xml))
 
 
 You can view it from the web with no installation:
@@ -215,7 +236,7 @@ When using the online reports, you might need to adjust the slides size based on
 You can infer them automatically from your environment:
 
 `````bash
-    tty.zone\?\&cols=$((COLUMNS))\&rows=$((LINES-5))\&terminal=${TERM}
+    curl -N tty.zone\?\&cols=$((COLUMNS))\&rows=$((LINES-5))\&terminal=${TERM}
 `````
 
 It is best to escape all special characters (e.g. ? &) as seen in the above samples, since some shells will require this (zsh).
