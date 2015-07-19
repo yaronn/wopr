@@ -20,13 +20,10 @@ Put a report on the web (e.g. gist) and view it via curl!
 
 <img src="../docs/images/map.png" alt="term" width="800">
 
-This presentation is a simple markup:
+This presentation is a simple markup ([full source](https://raw.githubusercontent.com/yaronn/wopr/master/examples/sample.xml)):
 
 `````xml
     <page>
-          
-          ...
-          
           <item col="8" row="0" colSpan="4" rowSpan="4" >
             <map>
               <markers>
@@ -35,13 +32,9 @@ This presentation is a simple markup:
               </markers>
             </map>
           </item>
-          
           ...
-          
     </page>
 `````
-
-([full source](https://raw.githubusercontent.com/yaronn/wopr/master/examples/sample.xml))
 
 
 You can view it from the web with no installation:
