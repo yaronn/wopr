@@ -5,21 +5,13 @@ WOPR is a simple markup language for creating rich terminal reports, presentatio
 <img src="../docs/images/charts.png" alt="term" width="337">
 <img src="../docs/images/map.png" alt="term" width="400">
 
-Put a report on the web (e.g. gist) and view it via curl:
+Put a report on the web (e.g. gist) and view it via curl or a local viewer:
 
 `````bash
     $> curl -N tty.zone/\[0-2\]\?auto\&cols=$((COLUMNS))
 `````
 
 (If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com)
-
-Or a local viewer:
-
-`````bash
-    $> npm install -g wopr
-    $> curl https://raw.githubusercontent.com/yaronn/wopr/master/examples/sample.xml > wopr-sample.xml
-    $> wopr wopr-sample.xml
-`````
 
 The report is just a simple markup ([full source](https://raw.githubusercontent.com/yaronn/wopr/master/examples/sample.xml)):
 
