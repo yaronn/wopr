@@ -1,8 +1,10 @@
 **tl;dr**
 
 `````bash
-    $> curl -N tty.zone/[0-2]?auto\&cols=$((COLUMNS))
+    $> curl -N tty.zone/\[0-2\]\?auto\&cols=$((COLUMNS))
 `````
+
+If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com
 
 ## WOPR
 
@@ -24,8 +26,8 @@ Put a report on the web (e.g. gist) and view it via curl!
 You can view it from the web with no installation:
 
 `````bash
-    $> curl tty.zone?cols=$((COLUMNS))
-    $> curl tty.zone/1?cols=$((COLUMNS))
+    $> curl tty.zone\?cols=$((COLUMNS))
+    $> curl tty.zone/1\?cols=$((COLUMNS))
 `````
 
 If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com.
@@ -57,7 +59,7 @@ You have 3 options to view this report:
 **Option 1: POST it to the wopr online viewer**
 
 `````bash
-    $> curl --data '<document><page><item col="0" row="0" colSpan="5" rowSpan="4"><bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" /></item></page></document>' tty.zone?cols=$((COLUMNS))
+    $> curl --data '<document><page><item col="0" row="0" colSpan="5" rowSpan="4"><bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" /></item></page></document>' tty.zone\?cols=$((COLUMNS))
 `````
 
 If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com.
@@ -67,7 +69,7 @@ If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute
 Save the report content in some url (e.g. gist) and then:
 
 `````bash
-    $> a=$(curl -s https://gist.githubusercontent.com/yaronn/e6eec6d0e7adac63c83f/raw/50aca544d26a32aa189e790635c8679067017948/gistfile1.xml); curl --data "$a" tty.zone?cols=$((COLUMNS))
+    $> a=$(curl -s https://gist.githubusercontent.com/yaronn/e6eec6d0e7adac63c83f/raw/50aca544d26a32aa189e790635c8679067017948/gistfile1.xml); curl --data "$a" tty.zone\?cols=$((COLUMNS))
 `````
 
 (note you need the gist raw url)
@@ -170,7 +172,7 @@ Depending on how you use a report, you have a few ways to view it. On Windows yo
 **Option 1: POST it to the wopr online viewer**
 
 `````bash
-    $> curl --data '<document><page><item col="0" row="0" colSpan="5" rowSpan="4"><bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" /></item></page></document>' tty.zone?cols=$((COLUMNS))
+    $> curl --data '<document><page><item col="0" row="0" colSpan="5" rowSpan="4"><bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" /></item></page></document>' tty.zone\?cols=$((COLUMNS))
 `````
 
 If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com.
@@ -180,7 +182,7 @@ If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute
 Save the report content in some url (e.g. gist) and then:
 
 `````bash
-    $> a=$(curl -s https://gist.githubusercontent.com/yaronn/e6eec6d0e7adac63c83f/raw/50aca544d26a32aa189e790635c8679067017948/gistfile1.xml); curl --data "$a" tty.zone?cols=$((COLUMNS))
+    $> a=$(curl -s https://gist.githubusercontent.com/yaronn/e6eec6d0e7adac63c83f/raw/50aca544d26a32aa189e790635c8679067017948/gistfile1.xml); curl --data "$a" tty.zone\?cols=$((COLUMNS))
 `````
 
 (note you need the gist raw url)
@@ -206,16 +208,17 @@ Tip: Maximize the terminal before viewing the report for best viewing experience
 When using the online reports, you might need to adjust the slides size based on your font / resolution or use non-xterm terminal. tty.zone supports the following query params:
 
 `````bash
-    curl -N tty.zone?\&cols=200\&rows=50\&terminal=xterm
+    curl -N tty.zone\?\&cols=200\&rows=50\&terminal=xterm
 `````
 
 You can infer them automatically from your environment:
 
 `````bash
-    tty.zone?\&cols=$((COLUMNS))\&rows=$((LINES-5))\&terminal=${TERM}
+    tty.zone\?\&cols=$((COLUMNS))\&rows=$((LINES-5))\&terminal=${TERM}
 `````
 
-(note the backslashs in the query - required in most shells)
+It is best to escape all special characters (e.g. ? &) as seen in the above samples, since some shells will require this (zsh).
+
 
 **Pages**
 
@@ -225,23 +228,23 @@ When using the online viewer you have 2 options:
 **Option 1:** Manually advance slides with Return or Space:
 
 `````bash
-    p=0; while true; do curl tty.zone/$((p++))?cols=$((COLUMNS)); read; done
+    p=0; while true; do curl tty.zone/$((p++))\?cols=$((COLUMNS)); read; done
 `````
 
 **Option 2:** Slides advance automatically every 5 seconds:
 
 `````bash
-    curl -N tty.zone/[0-2]?auto\&cols=$((COLUMNS))
+    curl -N tty.zone/\[0-2\]\?auto\&cols=$((COLUMNS))
 `````
 
-Where 0 is the index of the first slide and 2 of the last slide. Keep the brackets in the url (they are not to express optional argument).
+Where 0 is the index of the first slide and 2 of the last slide. Keep the brackets in the url (they are not to express optional argument) and escape them as in the above sample.
 
 Tip: disable curl buffering with the -N flag
 
 You can also view a specific slide (#4 in this case):
 
 `````bash
-    curl --data '<document>...</document>' tty.zone/4?cols=$((COLUMNS))
+    curl --data '<document>...</document>' tty.zone/4\?cols=$((COLUMNS))
 `````
 
 ##License##

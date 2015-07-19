@@ -11,9 +11,10 @@ function present(req, res, body, cba) {
   blessed.Program.global = null
 
   var u = url.parse(req.url, true)
+  
   var page = 0
   if (u.pathname && u.pathname.length>1) page=parseInt(u.pathname.substr(1))
-  var auto = u.query.auto===''
+  var auto = u.query["auto"]==='' || u.query["auto/"]==='' //second can happen in zsh when quoting the string
   var msg = auto?'next slide will appear within a few seconds':undefined
   
   if (!body | body=="") {
