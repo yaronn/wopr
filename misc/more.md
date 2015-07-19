@@ -1,26 +1,27 @@
-**tl;dr**
+## WOPR
+
+WOPR is a simple markup language for creating rich terminal reports, presentations and infographics.
+
+<img src="../docs/images/charts.png" alt="term" width="337">
+<img src="../docs/images/map.png" alt="term" width="400">
+
+Put a report on the web (e.g. gist) and view it via curl:
 
 `````bash
     $> curl -N tty.zone/\[0-2\]\?auto\&cols=$((COLUMNS))
 `````
 
-If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com
+(If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com)
 
-## WOPR
+Or a local viewer:
 
-A markup language for creating rich terminal reports, presentations and infographics.
+`````bash
+    $> npm install -g wopr
+    $> curl https://raw.githubusercontent.com/yaronn/wopr/master/examples/sample.xml > wopr-sample.xml
+    $> wopr wopr-sample.xml
+`````
 
-Put a report on the web (e.g. gist) and view it via curl!
-
-**Contributors:** Yaron Naveh ([@YaronNaveh](http://twitter.com/YaronNaveh))
-
-##Demo##
-
-<img src="../docs/images/charts.png" alt="term" width="800">
-
-<img src="../docs/images/map.png" alt="term" width="800">
-
-This presentation is a simple markup ([full source](https://raw.githubusercontent.com/yaronn/wopr/master/examples/sample.xml)):
+The report is just a simple markup ([full source](https://raw.githubusercontent.com/yaronn/wopr/master/examples/sample.xml)):
 
 `````xml
     <page>
@@ -35,24 +36,10 @@ This presentation is a simple markup ([full source](https://raw.githubuserconten
           ...
     </page>
 `````
+<img src="../docs/images/charts.png" alt="term" width="800">
 
+<img src="../docs/images/map.png" alt="term" width="800">
 
-You can view it from the web with no installation:
-
-`````bash
-    $> curl tty.zone\?cols=$((COLUMNS))
-    $> curl tty.zone/1\?cols=$((COLUMNS))
-`````
-
-If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com.
-
-You can also use a local viewer rather than curl:
-
-`````bash
-    $> npm install -g wopr
-    $> curl https://raw.githubusercontent.com/yaronn/wopr/master/examples/sample.xml > wopr-sample.xml
-    $> wopr wopr-sample.xml
-`````
 
 ##Writing your first terminal report##
 
