@@ -1,5 +1,11 @@
 #! /usr/bin/env node
 
+var file = process.argv[2]
+if (file=="-h" | file=="--help") {
+  showHelp()
+  process.exit()
+}
+
 var fs = require('fs')
   , parse = require('xml2js').parseString
   , Viewer = require('../lib/document-viewer.js')
@@ -9,7 +15,6 @@ var fs = require('fs')
 var page = -1
 var viewer = null
 
-var file = process.argv[2]
 if (!file) throw "please specify the presentation to render: \r\n\r\n $> doc-viewer doc.xml \r\n\r\n "
 
 var xml = fs.readFileSync(file)
@@ -31,7 +36,7 @@ parse(xml, function (err, doc) {
       prev()
   });
   
-  screen.key(['q'], function(ch, key) {
+  screen.key(['q', 'escape'], function(ch, key) {
       process.exit()
   });
 
@@ -55,3 +60,6 @@ function show() {
   if (err!==null) console.log(err)
 }
 
+function showHelp() {
+  console.log("\r\nusage: $> wopr [file.xml] \r\n\r\nuse spacebar / return to go forward in the presentation, backspace to go back, and ESC or q or CTRL+C to exit.\r\n\r\nhttps://github.com/yaronn/wopr\r\n\r\n")
+}
