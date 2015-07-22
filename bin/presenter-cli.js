@@ -23,16 +23,35 @@ parse(xml, function (err, doc) {
   viewer = new Viewer(doc.document, screen)
   next()
   
-  screen.key(['space', 'return', 'q'], function(ch, key) {
+  screen.key(['space', 'return'], function(ch, key) {
       next()
+  });
+  
+  screen.key(['backspace'], function(ch, key) {
+      prev()
+  });
+  
+  screen.key(['q'], function(ch, key) {
+      process.exit()
   });
 
 });
 
+function prev() {
+  if (page==0) return
+  page--
+  show()
+  
+}
 
 function next() {
+  if (page>=viewer.document.page.length-1) process.exit()
   page++
-  if (page>=viewer.document.page.length) process.exit()
+  show()
+}
+
+function show() {
   var err = viewer.renderPage(page)
   if (err!==null) console.log(err)
 }
+
