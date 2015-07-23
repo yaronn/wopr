@@ -1,7 +1,9 @@
 
 
 var blessed = require('blessed')
-patchBlessed()
+
+//no need as of blessed@0.1.15
+//patchBlessed()
 
 
 var http = require('http')

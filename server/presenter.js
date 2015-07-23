@@ -45,12 +45,16 @@ function present(req, res, body, cba) {
       
       viewer = new Viewer(doc.document, screen)
       var err = viewer.renderPage(page, msg)
-      if (err!==null) return cba(err)
+      if (err!==null) {
+        clean(screen)
+        return cba(err)
+      }
       
       //note the setTimeout is necessary even if delay is 0
       setTimeout(function() {
         //restore cursor
         res.end('\033[?25h')
+        clean(screen)
         return cba()
       }, auto?5000:0)
       
@@ -62,6 +66,11 @@ function present(req, res, body, cba) {
     
     
   })
+}
+
+function clean(screen) {
+  screen.program.destroy()
+  screen.destroy()
 }
 
 module.exports = present
