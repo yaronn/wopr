@@ -38,7 +38,7 @@ You have 3 options to view this report:
 
 If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com.
 
-**Note:** The online viewer is just a reference implementation. Do not send any secret data to it. You can create your own [online viewer](https://github.com/yaronn/wopr/tree/master/server) and secure it.
+**Note:** The online viewer is a reference implementation. Do not send it secret data but rather create [your own](https://github.com/yaronn/wopr/tree/master/server).
 
 **Option 2: POST it from external url**
 
@@ -52,7 +52,8 @@ Save the report content in some url (e.g. gist) and then:
 
 If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com.
 
-**Note:** The online viewer is just a reference implementation. Do not send any secret data to it. You can create your own [online viewer](https://github.com/yaronn/wopr/tree/master/server) and secure it.
+**Note:** The online viewer is a reference implementation. Do not send it secret data but rather create [your own](https://github.com/yaronn/wopr/tree/master/server).
+
 
 **Option 3: Via the local viewer**
 
