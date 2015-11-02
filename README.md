@@ -1,6 +1,6 @@
 ## WOPR
 
-WOPR is a simple markup language for creating rich terminal reports, presentations and infographics.
+WOPR is a simple markup language for creating [rich terminal reports](https://github.com/yaronn/blessed-contrib), presentations and infographics.
 
 Put [a report](https://raw.githubusercontent.com/yaronn/wopr/master/examples/sample.xml) on the web (e.g. gist) and view it via curl:
 
