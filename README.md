@@ -1,31 +1,31 @@
-## WOPR
+# WOPR
 
 WOPR is a simple markup language for creating [rich terminal reports](https://github.com/yaronn/blessed-contrib), presentations and infographics.
 
 Put [a report](https://raw.githubusercontent.com/yaronn/wopr/master/examples/sample.xml) on the web (e.g. gist) and view it via curl:
 
 `````bash
-    $> curl -N tty.zone/\[0-2\]\?auto\&cols=$((COLUMNS))
+$> curl -N tty.zone/\[0-2\]\?auto\&cols=$((COLUMNS))
 `````
 (If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com or use a [local viewer](https://github.com/yaronn/wopr#viewing-reports))
 
 Created by Yaron Naveh ([@YaronNaveh](https://twitter.com/YaronNaveh))
 
-<img src="./examples/images/charts.png" alt="term" />
-<img src="./examples/images/map.png" alt="term" />
+![](./examples/images/charts.png "term")
+![](./examples/images/map.png "term")
 
 ##Writing your first terminal report##
 
 Here is a simple report with a bar chart:
 
 `````xml
-    <document>
-      <page>
-        <item col="0" row="0" colSpan="5" rowSpan="4">
-          <bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" />
-        </item>
-      </page>
-    </document>
+<document>
+  <page>
+    <item col="0" row="0" colSpan="5" rowSpan="4">
+      <bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" />
+    </item>
+  </page>
+</document>
 `````
 
 You have 3 options to view this report:
@@ -33,7 +33,7 @@ You have 3 options to view this report:
 **Option 1: POST it to the wopr online viewer**
 
 `````bash
-    $> curl --data '<document><page><item col="0" row="0" colSpan="5" rowSpan="4"><bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" /></item></page></document>' tty.zone\?cols=$((COLUMNS))
+$> curl --data '<document><page><item col="0" row="0" colSpan="5" rowSpan="4"><bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" /></item></page></document>' tty.zone\?cols=$((COLUMNS))
 `````
 
 If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com.
@@ -45,7 +45,7 @@ If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute
 Save the report content in some url (e.g. gist) and then:
 
 `````bash
-    $> a=$(curl -s https://gist.githubusercontent.com/yaronn/e6eec6d0e7adac63c83f/raw/50aca544d26a32aa189e790635c8679067017948/gistfile1.xml); curl --data "$a" tty.zone\?cols=$((COLUMNS))
+$> a=$(curl -s https://gist.githubusercontent.com/yaronn/e6eec6d0e7adac63c83f/raw/50aca544d26a32aa189e790635c8679067017948/gistfile1.xml); curl --data "$a" tty.zone\?cols=$((COLUMNS))
 `````
 
 (note you need the gist raw url)
@@ -60,13 +60,13 @@ If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute
 Save the report xml to report.xml and then:
 
 `````bash
-    $> npm install -g wopr
-    $> wopr report.xml
+$> npm install -g wopr
+$> wopr report.xml
 `````
 
 Note the local viewer does not send anything online and does not require network.
 
-<img src="./examples/images/charts.png" alt="term" />
+![](./examples/images/charts.png "term")
 
 ##Markup Basics#
 
@@ -75,14 +75,14 @@ Note the local viewer does not send anything online and does not require network
 A document is a set of pages:
 
 `````xml
-    <document>
-      <page>
-        ...
-      </page>
-      <page>
-        ...
-      </page>
-    </document>
+<document>
+  <page>
+    ...
+  </page>
+  <page>
+    ...
+  </page>
+</document>
 `````
 
 **Layout**
@@ -90,16 +90,16 @@ A document is a set of pages:
 A page is a 12x12 grid in which you can position different widgets:
 
 `````xml
-    <document>
-      <page>
-        <item col="0" row="0" colSpan="3" rowSpan="3">
-          <bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" />
-        </item>
-        <item col="5" row="9" colSpan="1" rowSpan="1">
-          <box content="some text" />
-        </item>
-      </page>
-    </document>
+<document>
+  <page>
+    <item col="0" row="0" colSpan="3" rowSpan="3">
+      <bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" />
+    </item>
+    <item col="5" row="9" colSpan="1" rowSpan="1">
+      <box content="some text" />
+    </item>
+  </page>
+</document>
 `````
 
 Here, the bar widget is in the first column and row (0-based indexing) and spans three columns and rows.
@@ -112,38 +112,38 @@ The available widgets are the ones that exist in the [blessed](https://github.co
 You can infer the xml representation of a javascript widget using a simple convention. Assume that you would instantiate some blessed widget with this javascript:
 
 `````javascript
-    blessed.widget({ string: "5"
-                   , int: 1
-                   , intArray: [1,2,3]
-                   , stringArray: ["a", "b", "c"]
-                   , multiArray: [ [1,2,3], [4,5,6] ]
-                   , complexArray: [ {a: 1, b: [1,2] }, {a: 3, b: [3,4]} ]
-                   , object: { innerProp: 1, multiArray: [ [1,2], [3,4] ] }
-    })
+blessed.widget({ string: "5"
+               , int: 1
+               , intArray: [1,2,3]
+               , stringArray: ["a", "b", "c"]
+               , multiArray: [ [1,2,3], [4,5,6] ]
+               , complexArray: [ {a: 1, b: [1,2] }, {a: 3, b: [3,4]} ]
+               , object: { innerProp: 1, multiArray: [ [1,2], [3,4] ] }
+})
 `````
 
 Then here is how you would represent it in xml:
     
 `````xml
-    <widget string="5" int="1" intArray="1,2,3" stringArray="a,b,c" object-innerProp="1">
-      <multiArray>
-        1,2,3
-        4,5,6
-      </multiArray>
-      <object-multiArray>
-        1,2
-        3,4
-      </object-multiArray>
-      <complexArray>
-        <m a="1" b="1,2" />
-        <m a="3" b="3,4" />
-      </complexArray>
-    </widget>
+<widget string="5" int="1" intArray="1,2,3" stringArray="a,b,c" object-innerProp="1">
+  <multiArray>
+    1,2,3
+    4,5,6
+  </multiArray>
+  <object-multiArray>
+    1,2
+    3,4
+  </object-multiArray>
+  <complexArray>
+    <m a="1" b="1,2" />
+    <m a="3" b="3,4" />
+  </complexArray>
+</widget>
 `````
 
 You can also look at the [demo xml](https://raw.githubusercontent.com/yaronn/wopr/master/examples/sample.xml) to get more samples.
 
-<img src="./examples/images/map.png" alt="term" />
+![](./examples/images/map.png "term")
 
 ##Viewing Reports##
 
@@ -153,7 +153,7 @@ Depending on how you use a report, you have a few ways to view it. On Windows yo
 **Option 1: POST it to the wopr online viewer**
 
 `````bash
-    $> curl --data '<document><page><item col="0" row="0" colSpan="5" rowSpan="4"><bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" /></item></page></document>' tty.zone\?cols=$((COLUMNS))
+$> curl --data '<document><page><item col="0" row="0" colSpan="5" rowSpan="4"><bar maxHeight="5" data-titles="A,B,C" data-data="2,5,3" /></item></page></document>' tty.zone\?cols=$((COLUMNS))
 `````
 
 If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute-1.amazonaws.com.
@@ -163,7 +163,7 @@ If you experience firewall issues replace tty.zone with ec2-23-21-64-152.compute
 Save the report content in some url (e.g. gist) and then:
 
 `````bash
-    $> a=$(curl -s https://gist.githubusercontent.com/yaronn/e6eec6d0e7adac63c83f/raw/50aca544d26a32aa189e790635c8679067017948/gistfile1.xml); curl --data "$a" tty.zone\?cols=$((COLUMNS))
+$> a=$(curl -s https://gist.githubusercontent.com/yaronn/e6eec6d0e7adac63c83f/raw/50aca544d26a32aa189e790635c8679067017948/gistfile1.xml); curl --data "$a" tty.zone\?cols=$((COLUMNS))
 `````
 
 (note you need the gist raw url)
@@ -177,8 +177,8 @@ Tip: If you use a url shortener (e.g. bit.ly) add the -L flag to curl to follow 
 Save the report xml to report.xml and then:
 
 `````bash
-    $> npm install -g wopr
-    $> wopr report.xml
+$> npm install -g wopr
+$> wopr report.xml
 `````
 
 Note the local viewer does not send anything online and does not require network.
@@ -190,13 +190,13 @@ Tip: If you CTRL+C in the middle or rendering your cursoe might disappear. Resto
 When using the online reports, you might need to adjust the slides size based on your font / resolution or use non-xterm terminal. tty.zone supports the following query params:
 
 `````bash
-    curl -N tty.zone\?\&cols=200\&rows=50\&terminal=xterm
+curl -N tty.zone\?\&cols=200\&rows=50\&terminal=xterm
 `````
 
 You can infer them automatically from your environment:
 
 `````bash
-    curl -N tty.zone\?\&cols=$((COLUMNS))\&rows=$((LINES-5))\&terminal=${TERM}
+curl -N tty.zone\?\&cols=$((COLUMNS))\&rows=$((LINES-5))\&terminal=${TERM}
 `````
 
 It is best to escape all special characters (e.g. ? &) as seen in the above samples, since some shells will require this (zsh).
@@ -210,13 +210,13 @@ When using the online viewer you have 2 options:
 **Option 1:** Manually advance slides with Return or Space:
 
 `````bash
-    p=0; while true; do curl tty.zone/$((p++))\?cols=$((COLUMNS)); read; done
+p=0; while true; do curl tty.zone/$((p++))\?cols=$((COLUMNS)); read; done
 `````
 
 **Option 2:** Slides advance automatically every 5 seconds:
 
 `````bash
-    curl -N tty.zone/\[0-2\]\?auto\&cols=$((COLUMNS))
+curl -N tty.zone/\[0-2\]\?auto\&cols=$((COLUMNS))
 `````
 
 Where 0 is the index of the first slide and 2 of the last slide. Keep the brackets in the url (they are not to express optional argument) and escape them as in the above sample.
@@ -226,7 +226,7 @@ Tip: disable curl buffering with the -N flag
 You can also view a specific slide (#4 in this case):
 
 `````bash
-    curl --data '<document>...</document>' tty.zone/4\?cols=$((COLUMNS))
+curl --data '<document>...</document>' tty.zone/4\?cols=$((COLUMNS))
 `````
 
 ##License##
