@@ -183,8 +183,8 @@ Save the report xml to report.xml and then:
 
 Note the local viewer does not send anything online and does not require network.
 
-Tip: Maximize the terminal before viewing the report for best viewing experience
-Tip: If you CTRL+C in the middle or rendering your cursoe might disappear. Restore it by running again and letting the render complete or with $> echo '\033[?25h'
+**Tip:** Maximize the terminal before viewing the report for best viewing experience  
+**Tip:** If you <kbd>CTRL+C</kbd> in the middle or rendering your cursoe might disappear. Restore it by running again and letting the render complete or with `$> echo '\033[?25h'`
 
 **View customization**
 When using the online reports, you might need to adjust the slides size based on your font / resolution or use non-xterm terminal. tty.zone supports the following query params:
