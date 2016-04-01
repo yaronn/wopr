@@ -69,8 +69,9 @@ function present(req, res, body, cba) {
 }
 
 function clean(screen) {
-  screen.program.destroy()
-  screen.destroy()
+  //TODO this code is very sensitive to blessed versions, need to check right version/usage
+  //screen.program.destroy()
+  //screen.destroy()
 }
 
 module.exports = present
