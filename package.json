@@ -1,6 +1,6 @@
 {
   "name": "wopr",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,8 +15,8 @@
   },
   "license": "ISC",
   "dependencies": {
-    "blessed": "^0.1.7",
-    "blessed-contrib": "^2.3.1",
+    "blessed": "0.1.11",
+    "blessed-contrib": "2.3.1",
     "xml2js": "^0.4.9"
   },
   "homepage": "https://github.com/yaronn/wopr",
